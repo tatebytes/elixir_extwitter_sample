@@ -9,7 +9,9 @@ defmodule MyFirstApplication.Application do
     children = [
       # Starts a worker by calling: PluralsightTweet.Worker.start_link(arg)
       # {MyFirstApplication.Worker, arg}
-      MyFirstApplication.Scheduler
+      #tell our application main module to launch our tweet server and supervisor
+      MyFirstApplication.TweetServer, #doesn't take any params, just specify the module name.
+      MyFirstApplication.Scheduler #need a config file for this child to work.
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
